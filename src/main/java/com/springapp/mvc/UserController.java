@@ -14,14 +14,14 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
         model.addAttribute("user", new User());
         model.addAttribute("users", userRepository.findAll());
         return "users";
     }
 
-    @RequestMapping(value = "/api/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/user", method = RequestMethod.GET)
     public
     @ResponseBody
     String listUsersJson(ModelMap model) throws JSONException {
@@ -37,15 +37,15 @@ public class UserController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user, BindingResult result) {
         userRepository.save(user);
-        return "redirect:/";
+        return "redirect:/user/list";
     }
 
-    @RequestMapping("/delete/{userId}")
+    @RequestMapping("/user/delete/{userId}")
     public String deleteUser(@PathVariable("userId") Long userId) {
         userRepository.delete(userRepository.findOne(userId));
-        return "redirect:/";
+        return "redirect:/user/list";
     }
 }
