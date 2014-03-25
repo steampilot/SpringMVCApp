@@ -1,1 +1,7 @@
 This file was created by IntelliJ IDEA 12.1 for binding GitHub repository
+
+Read folowing informations about Buisness Layer Classes in Spring
+http://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
+
+For Validating issues read
+http://fruzenshtein.com/spring-mvc-validator-initbinder/
