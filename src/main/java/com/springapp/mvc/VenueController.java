@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 class VenueController {
     @Autowired
     private VenueRepository venueRepository;
+	@Autowired
+	private VenueService venueService;
 
     @RequestMapping(value = "/venue/list", method = RequestMethod.GET)
     public String listVenues(ModelMap model) {
@@ -43,13 +45,15 @@ class VenueController {
 
     @RequestMapping(value = "/venue/add", method = RequestMethod.POST)
     public String addVenue(@ModelAttribute("venue") Venue venue, BindingResult result) {
-        venueRepository.save(venue);
+        venueService.beforeSave(venue);
+	    //venueRepository.save(venue);
         return "redirect:/venue/list";
     }
 
     @RequestMapping("/venue/delete/{venueId}")
     public String deleteVenue(@PathVariable("venueId") Long venueId) {
-        venueRepository.delete(venueRepository.findOne(venueId));
+        venueService.beforeDelete(venueId);
+	    ///venueRepository.delete(venueRepository.findOne(venueId));
         return "redirect:/venue/list";
     }
 }

@@ -14,6 +14,9 @@ class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
+	@Autowired
+	private PersonService personService;
+
     @RequestMapping(value = "/person/list", method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
         model.addAttribute("person", new Person());
@@ -45,13 +48,15 @@ class PersonController {
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("person") Person person, BindingResult result) {
-        personRepository.save(person);
+        personService.beforeSave(person);
+	    //personRepository.save(person);
         return "redirect:/person/list";
     }
 
     @RequestMapping("/person/delete/{personId}")
     public String deletePerson(@PathVariable("personId") Long personId) {
-        personRepository.delete(personRepository.findOne(personId));
+        personService.beforeDelete(personId);
+	    //personRepository.delete(personRepository.findOne(personId));
         return "redirect:/person/list";
     }
 }

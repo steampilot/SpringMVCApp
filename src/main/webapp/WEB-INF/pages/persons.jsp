@@ -52,7 +52,7 @@
 		            <form:input path="email" class="form-control" placeholder="Email"/>
 	            </div>
 
-                <button type="submit" class="btn btn-default">Add Venue</button>
+                <button type="submit" class="btn btn-default">Add Person</button>
             </form:form>
 
             <c:if test="${!empty persons}">

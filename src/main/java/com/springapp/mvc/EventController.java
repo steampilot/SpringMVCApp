@@ -14,8 +14,11 @@ class EventController {
     @Autowired
     private EventRepository eventRepository;
 
+	@Autowired
+	private EventService eventService;
+
     @RequestMapping(value = "/event/list", method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
+    public String listEvents(ModelMap model) {
         model.addAttribute("event", new Event());
         model.addAttribute("events", eventRepository.findAll());
         return "events";
@@ -40,14 +43,14 @@ class EventController {
 
     @RequestMapping(value = "/event/add", method = RequestMethod.POST)
     public String addEvent(@ModelAttribute("event") Event event, BindingResult result) {
-
-        eventRepository.save(event);
+		eventService.beforeSave(event);
         return "redirect:/event/list";
     }
 
     @RequestMapping("/event/delete/{eventId}")
     public String deleteEvent(@PathVariable("eventId") Long eventId) {
-		eventRepository.delete(eventRepository.findOne(eventId));
+		eventService.beforeDelete(eventId);
+		//eventRepository.delete(eventRepository.findOne(eventId));
         return "redirect:/event/list";
     }
 }
