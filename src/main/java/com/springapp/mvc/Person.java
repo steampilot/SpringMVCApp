@@ -37,6 +37,10 @@ private String country;
 @Basic
 private String email;
 
+@OneToMany(cascade = Cascade Type.ALL, fetch = FetchType.LAZY)
+@JoinColumn(name="id")
+private Set<Venue> venue;
+
 	public Long getId() {
 		return id;
 	}
@@ -116,4 +120,10 @@ private String email;
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public Venue getVenue(){
+		return venue;
+	}
+	
+	public void setVenue(Venue venue ){this.venue = venue;}
 }
