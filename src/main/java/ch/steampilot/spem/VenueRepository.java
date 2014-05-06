@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package ch.steampilot.spem;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
