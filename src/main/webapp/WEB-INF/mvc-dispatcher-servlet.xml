@@ -13,7 +13,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <jpa:repositories base-package="com.springapp.mvc"/>
+    <jpa:repositories base-package="ch.steampilot.spem"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="defaultPersistenceUnit"/>
