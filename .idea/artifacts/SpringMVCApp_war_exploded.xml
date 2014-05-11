@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" build-on-make="true" name="SpringMVCApp:war exploded">
-    <output-path>$PROJECT_DIR$/target/SpringMVCApp</output-path>
+    <output-path>$PROJECT_DIR$/target/SteampilotEventManager</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="SpringMVCApp/web/Web" />
       <element id="directory" name="WEB-INF">

@@ -6,40 +6,40 @@ import java.util.Date;
 @Entity(name = "person")
 public class Person {
 
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
 
-@Basic
-private String firstName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-@Basic
-private String lastName;
+    @Basic
+    private String title;
 
-@Basic
-private Date birthDate;
+	@Basic
+	private String firstName;
 
-@Basic
-private String address1;
+	@Basic
+	private String lastName;
 
-@Basic
-private String address2;
+	@Basic
+	private Date birthday;
 
-@Basic
-private int zipCode;
+	@Basic
+	private String email;
 
-@Basic
-private String city;
+	@Basic
+	private String address1;
 
-@Basic
-private String country;
+	@Basic
+	private String address2;
 
-@Basic
-private String email;
+	@Basic
+	private int zipCode;
 
-@OneToMany(cascade = Cascade Type.ALL, fetch = FetchType.LAZY)
-@JoinColumn(name="id")
-private Set<Venue> venue;
+	@Basic
+	private String city;
+
+	@Basic
+	private String country;
 
 	public Long getId() {
 		return id;
@@ -47,6 +47,14 @@ private Set<Venue> venue;
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getFirstName() {
@@ -65,12 +73,20 @@ private Set<Venue> venue;
 		this.lastName = lastName;
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getAddress1() {
@@ -113,17 +129,5 @@ private Set<Venue> venue;
 		this.country = country;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public Venue getVenue(){
-		return venue;
-	}
-	
-	public void setVenue(Venue venue ){this.venue = venue;}
 }

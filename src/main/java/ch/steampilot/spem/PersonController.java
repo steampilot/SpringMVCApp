@@ -34,7 +34,7 @@ class PersonController {
             personJSON.put("id", person.getId());
             personJSON.put("firstName", person.getFirstName());
             personJSON.put("lastName", person.getLastName());
-	        personJSON.put("birthDate", person.getBirthDate());
+	        personJSON.put("birthDay", person.getBirthday());
 	        personJSON.put("address1", person.getAddress1());
 	        personJSON.put("address2", person.getAddress2());
 	        personJSON.put("zipCode", person.getZipCode());

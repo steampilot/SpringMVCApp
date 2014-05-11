@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 @Entity(name = "venue")
 public class Venue {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -88,4 +90,5 @@ public class Venue {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 
 @Entity(name = "event")
 public class Event {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,8 +23,11 @@ public class Event {
 	@Basic
 	private Date endDate;
 
+	public Event() {
+	}
 
-    public Long getId() {
+
+	public Long getId() {
         return id;
     }
 
@@ -61,4 +66,5 @@ public class Event {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
 }
